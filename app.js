@@ -2,7 +2,7 @@
 console.log("Mon premier script JS.")
 
 // API Fetch
-fetch("http://localhost:4000/bonjour",{
+fetch("https://eni-js-backend.azurewebsites.net/bonjour",{
     mode: "no-cors"
 })
     .then( res => res.text() )
@@ -16,7 +16,7 @@ elemClients.innerHTML = ""
 
 // let clients = [];
 
-fetch("http://localhost:4000/clients") // ,{mode: "no-cors"}
+fetch("https://eni-js-backend.azurewebsites.net/clients") // ,{mode: "no-cors"}
 .then( res => res.json() )
 .then( clients => {
         // pour chaque client ajouter un élément <li>
@@ -37,7 +37,7 @@ formClient.addEventListener("submit", event => {
         prenom: formClient.prenom.value
     };
 
-    fetch("http://localhost:4000/clients",{
+    fetch("https://eni-js-backend.azurewebsites.net/clients",{
         method: "POST",
         body: JSON.stringify(client),
         headers: {
@@ -46,7 +46,7 @@ formClient.addEventListener("submit", event => {
     }).then( () => {
     
         elemClients.innerHTML = "";
-        fetch("http://localhost:4000/clients") // ,{mode: "no-cors"}
+        fetch("https://eni-js-backend.azurewebsites.net/clients") // ,{mode: "no-cors"}
             .then( res => res.json() )
             .then( clients => {
                 // pour chaque client ajouter un élément <li>
